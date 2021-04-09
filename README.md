@@ -38,3 +38,6 @@ Stretch Goals ->
 Global Leaderboard\
 Design Changes\
 Message when you beat your high score
+
+![home page](assets/wireframes/homePage.jpeg)
+![score page](assets/wireframes/scorePage.jpeg)
