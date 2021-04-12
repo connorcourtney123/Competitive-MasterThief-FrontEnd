@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+    text-align: center;
+    margin: 0 auto;
+    background-color: royalblue;
+    background-image: url('assets/bankWall2.jpeg');
+    /* https://www.wallpaperflare.com/untitled-metal-wall-texture-gray-background-metallic-smooth-wallpaper-zutix/download/1920x1080 */
+}
+
+
+/* MAIN SCREEN */
+ #main_screen{
+  /*  this is a flex container for noteScreen numbOverlay bankLock */
+    display:flex;
+    margin: 5vw 5vw 5vw 5vw;
+    animation-name: winGame;
+    animation-duration: 5s;
+
+}
+
+@keyframes winGame{
+    0%{
+        margin-top: 3vh;
+    }
+    100%{
+        margin-top:-130vh;
+    }
+}
+
+#manualBtn{
+    margin: -10vw auto auto -66vw;
+    color: gray;
+    background-color: black;
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    font-weight:200;
+    border-radius: 2%;
+}
+#manualBtn:hover{
+    color:green;
+}
+
+/* assisted with code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 20vw; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+      display: flex;
+      flex-wrap: wrap;
+      color: gray;
+      background-color: black;
+      font-size: 1.5vw;
+      font-family: sans-serif;
+      font-weight: 200;
+      margin: auto;
+      padding: 2vw;
+      border: .5vw solid #888;
+      width: 25%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    margin: auto 0 auto auto;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  .close:hover{
+      cursor: pointer;
+      color: green;
+  }
+
+.guessDisplay{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 1vw;
+
+}
+.guessCircles{
+    height: 3.5vw;
+    width: 3.5vw;
+    border-radius: 50%;
+    margin: .4vw 1vw 0vw 1vw;
+}
+.hintCircles{
+    height: 1vw;
+    width: 1vw;
+    border-radius: 50%;
+    margin: .4vw 1vw 0vw 1vw;
+}
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.white{
+    background-color: white;
+}
+.red{
+    background-color: red;
+}
+.purple{
+    background-color: purple;
+}
+
+#noteScreen{
+    background-image: url('assets/screen2.jpeg');
+    /*http://wallpaperswide.com/dotted_texture-wallpapers.html*/
+    background-color: lightblue;
+    width: 50vw;
+    height: 50vw;
+    border: 5vw solid black;
+    border-radius: 2%;
+}
+
+#numOverlay{
+    background-color: rgba(179, 255, 102, 0.4);
+    width: 50vw;
+    height: 30vw;
+    z-index: 2;
+    margin: 25vw auto auto -1vw;
+    border: 2vw solid black;
+    border-radius: 2%;
+   
+}
+
+#bankLock{
+    /* calculator screen and bank lock pad */
+    display:flex;
+    flex-direction: column;
+    border-radius: 1%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #9696a1;
+    box-shadow: 10px 20px 36px #000000;
+    width: 45vw;
+    height: 55vw;
+    margin: 5vw auto auto -40vw;
+    z-index: 1;
+}
+#bankLogo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: serif;
+    font-size: 2.5vw;
+    width: 80%;
+    height: 5vw;
+    align-self: center;
+    margin: 1vw 0 1vw 0;
+}
+#bankLockScreen{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000066;
+    width: 80%;
+    height: 6vw;
+    border: 1vw solid black;
+    margin: -.5vw auto auto auto;
+    
+}
+.message{
+    display:none;
+    color: white;
+    font-size: 2vw;
+    margin: auto auto auto 1vw;
+
+}
+.star{
+    color: white;
+    font-size: 4vw;
+    margin: auto 1vw auto 1vw;
+}
+#location1{
+   display:none;
+}
+#location2{
+    display:none;
+ }
+ #location3{
+    display:none;
+ }
+ #location4{
+    display:none;
+ }
+#bankLockPad{
+    /* has number buttons */
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 60.5%;
+    margin-top: -100vw;
+
+}
+ .numButton{
+     background-color: lightgray;
+     height: 5vw;
+     width: 5vw;
+     margin: 1vw 1.5vw 1vw 1.5vw;
+     border-right: .5vw solid black;
+     border-bottom: .5vw solid black;
+     font-family: 'Times New Roman', Times, serif;
+     font-size: 5vw;
+     font-weight: bold;
+ }
+
+ .fingerPrint{
+    
+     height: 5vw;
+     width: 5vw;
+     margin: 1vw 1.5vw 1vw 1.5vw;
+ }
+
+    .fingerPrint img{
+        height: 5vw;
+        width: 5vw;
+    }
+ #FPHolder{
+    
+    height: 100%;
+    width: 70%;
+    margin: 2% auto auto auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+ }
+
+/*Win Screen*/
+
+
+
+/*Lose Screen*/
+
+#jailbars {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin-top: -5vw;
+    z-index: 10;
+    animation-name: loseGame;
+    animation-duration: 2s;
+}
+
+.jailbar{
+    width: 4vw;
+    height: 120%;
+    background-color: black;
+}
+
+@keyframes loseGame {
+    0% {
+        margin-top: -130vh;
+    }
+    100% {
+        margin-top: -5vw;
+    }
+}
+
+#playAgain {
+    display: flex;
+    position: fixed;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100; /*above everything*/
+    height: 0vw;
+    width: 20vw;
+    font-size: 1.5vw;
+    font-family: sans-serif;
+    font-weight: 200;
+    align-self: center;
+    margin: -100vw auto auto 40vw;
+    border-radius: 2%;
+    animation-name: playAgain;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    /* so the animation stays in its final state */
+}
+@keyframes playAgain{
+    0% {
+        margin: -100vw auto auto 40vw;
+    }
+    100% {
+        margin: -35vw auto auto 40vw;
+    }
+}
+
+#playAgainBttn {
+    padding: 1vw;
+    color: gray;
+    background-color: black;
+    font-size: 3vw;
+    font-family: sans-serif;
+    font-weight: 200;
+    border-radius: 2%;
+    border: .4vw solid white;
+}
+
+#playAgainBttn:hover {
+    color: green;
+    cursor: pointer;
+}
