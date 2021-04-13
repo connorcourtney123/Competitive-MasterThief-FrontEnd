@@ -3,7 +3,7 @@ const app = express()
 const rowdy = require('rowdy-logger') //for rowdy-logger
 const routesReport = rowdy.begin(app)//for rowdy-logger
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())//allow for use of req.body
 
@@ -19,3 +19,5 @@ app.listen(PORT, () => {
 // }
 // app.listen(port);
 // HELLO
+
+app.use(express.static('public'))
