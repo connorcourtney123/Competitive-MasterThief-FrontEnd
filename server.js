@@ -23,7 +23,7 @@ app.use(async (req, res, next) => {
   if (process.env.NODE_ENV === 'production') {
     await replaceInFile({
       files: filepath,
-      from: 'http://localhost:3001',
+      from: 'http://localhost:3000',
       to: 'https://gentle-peak-73931.herokuapp.com'
     })
   }
