@@ -2,12 +2,10 @@ const express = require('express')
 const app = express()
 const rowdy = require('rowdy-logger') //for rowdy-logger
 const routesReport = rowdy.begin(app)//for rowdy-logger
-
+const path = require('path')
 const PORT = process.env.PORT || 3000
 
 app.use(express.json())//allow for use of req.body
-
-
 //listen on port 3001
 app.listen(PORT, () => {
   console.log('the server is listening!')
@@ -20,6 +18,7 @@ app.listen(PORT, () => {
 // app.listen(port);
 // HELLO
 app.use(async (req, res, next) => {
+  const filepath = path.join(__dirname, "main.js")
   if (process.env.NODE_ENV === 'production') {
     await replaceInFile({
       files: filepath,
@@ -28,5 +27,6 @@ app.use(async (req, res, next) => {
     })
   }
   next()
+  
 })
 app.use(express.static('public'))
