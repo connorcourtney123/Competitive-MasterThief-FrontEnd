@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/game_style.css">
+    <link rel="stylesheet" href="css/log_sign_style.css">
+    <link rel="stylesheet" href="css/score_style.css">
+    
+    <title>MasterTHIEF!</title>
+</head>
+<body>
+
+
+<!-- GAME SCREEN------------------------------------------------------------------------ -->
+<div id='game_screen'>
+
+    <!--LOSE SCREEN-->
+    <div id="jailbars">
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+        <div class="jailbar"></div>
+    </div>
+
+   
+
+    <!--modal ASSISTED with code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>ThiefTech&trade; gives coded feedback about your guesses:</p>
+            <p><div class="red hintCircles"></div> = a right color in the right spot</p>
+            <p><div class="white hintCircles"></div> = a right color in the wrong spot</p>
+        </div>
+      
+    </div>
+
+    <div id="main_screen">
+        <div id="noteScreen">
+
+        </div>
+        <div id="numOverlay">
+            <div id="FPHolder">
+                <div id='bluePrint' class="fingerPrint"><img src="assets/printBlue.png"></div>
+                <div class="fingerPrint"></div>
+                <div id ='redPrint' class="fingerPrint"><img src="assets/printRed.png"></div>
+                <div id ='purplePrint' class="fingerPrint"><img src="assets/printPurple.png"></div>
+                <div class="fingerPrint"></div>
+                <div id ='greenPrint' class="fingerPrint"><img src="assets/printGreen.png"></div>
+                <div class="fingerPrint"></div>
+                <div id ='whitePrint' class="fingerPrint"><img src="assets/printWhite.png"></div>
+                <div class="fingerPrint"></div>
+                <div class="fingerPrint"></div>
+                <div id ='yellowPrint' class="fingerPrint"><img src="assets/printYellow.png"></div>
+                <div class="fingerPrint"></div>
+            </div>
+
+            <!-- Trigger/Open The Modal -->
+            <button id="manualBtn">ThiefTech&trade; Manual</button>
+
+        </div>
+        <div id="bankLock">
+           <div id="bankLogo"><img src="assets/bankLogo.png" width="80vw" height="80vw" />Pigville Bank Vault</div>
+            <div id="bankLockScreen">
+                <div id="location1" class="star">*</div>
+                <div id="location2" class="star">*</div>
+                <div id="location3" class="star">*</div>
+                <div id="location4" class="star">*</div>
+                <p id="correct" class="message">access granted</p>
+                <p id="incorrect" class="message">incorrect key</p>
+            </div>
+            <div id="bankLockPad">
+                <div class="numButton">1</div>
+                <div class="numButton">2</div>
+                <div class="numButton">3</div>
+                <div class="numButton">4</div>
+                <div class="numButton">5</div>
+                <div class="numButton">6</div>
+                <div class="numButton">7</div>
+                <div class="numButton">8</div>
+                <div class="numButton">9</div>
+                <div class="numButton">*</div>
+                <div class="numButton">0</div>
+                <div class="numButton">#</div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- sound sourced from https://www.soundjay.com/heartbeat-sound-effect.html -->
+    <audio id="fastHeartBeat">
+        <source src="assets/heartbeatFast.mp3" type="audio/mp3" />
+        <source src="assets/heartbeatFast.wav" type="audio/mp3" />
+    </audio>
+
+
+    <!-- sound sourced from https://www.youtube.com/watch?v=JM7v15SzKJM -->
+    <audio id="siren" loop>
+        <source src="assets/policeCar1.mp3" type="audio/mp3" />
+    </audio>
+
+
+    <!-- sound sourced from https://youtu.be/8cM24tzPpeI -->
+    <audio id="vaultOpen">
+        <source src="assets/vaultOpen.mp3" type="audio/mp3" />
+    </audio>
+    <div id="playAgain"><button id="playAgainBttn">Play Again?</button></div>
+    <script async defer src="main.js"></script>
+        <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js "></script>
+
+
+</div>
+
+
+
+<!--LOG IN SCREEN---------------------------------------------------------------------------------- -->
+<div id="log_sign_screen">
+    <div id="mt_logo" class="screen_header">MasterThief</div>
+    <div id="input_boxes">
+        <div id="sign_up_box">
+            <form id="signup">
+                <div id="labelAndInput">
+                    <label name="name">name:</label>
+                    <input id="s_name" type="text" name="name">
+                </div>
+                <div id="labelAndInput">
+                    <label name="username">username:</label>
+                    <input id="s_username" type="text" name="username">
+                </div>
+                <div id="labelAndInput">
+                    <label name="password">password:</label>
+                    <input id="s_password" type="password" name="password">
+                </div>
+                <div id="labelAndInput">
+                    <button id="signup_bttn" class="buttons" type="submit">sign in</button>
+                </div>
+            </form>
+        </div>
+        <div id="divider"></div>
+        <div id="log_in_box">
+            <form id="login">
+                <div id="placeholder"></div>
+                <div id="labelAndInput">
+                    <label name="username">username:</label>
+                    <input id="l_username" type="text" name="username">
+                </div>
+                <div id="labelAndInput">
+                    <label name="password">password:</label>
+                    <input id="l_password" type="password" name="password">
+                </div>
+                <div id="labelAndInput">
+                    <button id="login_bttn" class="buttons" type="submit">log in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--SCORE SCREEN---------------------------------------------------------------------------------- -->
+<div id="score_screen">
+
+    <div id="mt_logo" class="screen_header">MasterThief</div>
+
+        <div id="scorePageContent">
+
+            <div id='scoreboard' class='leaderboard'>
+                <div class="board_header">friend rankings:</div>
+                <div id="friend_board"></div>
+            </div>
+
+            <div id='profile_box'>
+
+                <div id="profile_heading">
+                    <div id="welcome" class="profile_header">Welcome, user_name_here.</div>
+                    <button id="logOut" class='profile_bttn'>log out</button>
+                </div>
+
+                <div id="user_profile">
+
+                    <!-- user stats -->
+                    <div id="stats_header" class="stats_header">user_name_here's stats:</div>
+                    <div id="userStatsBox">
+                        <div class="stats">
+                            <div class="statLabel">best score:</div>
+                            <div id="userScore">SCORE_HERE</div>
+                        </div>
+                        <div class="stats">
+                            <div class="statLabel">wins:</div>
+                            <div id="userWins">WINS_HERE</div>
+                        </div>
+                        <div class="stats">
+                            <div class="statLabel">losses:</div>
+                            <div id="userLosses">LOSSES_HERE</div>
+                        </div>
+                    </div>
+
+                </div>
+                    
+                    <!-- add friend -->
+                <form id="addFriend_form">
+                    <label name="friend_username"></label>
+                    <input id="friend_username" type="text" name="friend_username" placeholder="enter friend's username">
+                    <button id="addFriend_bttn" class='profile_bttn'>Add Friend</button>
+                </form>
+
+                <!-- play button -->
+                <button id="play_bttn">Break Into The Bank</button>
+                
+            </div>
+
+        </div>
+
+
+</div>
+
+
+</body>
+
+</html>
