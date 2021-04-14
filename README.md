@@ -2,42 +2,43 @@
 ## OverView
 ### This app is an addon to my project 1 MasterThief game. It will have user profiles, friends, and score tracking(highscore, win/lose, etc.)
 
-User Stories    ->  When a user plays the game they can sign into their own profile. See their stats, and see the stats of their friends. The user should also be able create their own profile and add friends profiles. 
+User Stories    ->  When a user plays the game they can sign into their own profile. See their stats, and see the stats of their friends. The user should also be able create a new profile and add friends. When they win, their win count will go up and when they beat their high score, their saved score will be changed to that score.
 
 Routes Inventory ->
-app.post('/user/:id/win/:score', saveScore)
+app.post(‘/login’, getUserByUsername)
 
-app.post('/user/:id/lost', addLoss)
+app.post(‘/signup’, createUser)
+
+app.post('/user/:id/win/:score', saveScore)
 
 app.get('/user/:id', getMyScore)
 
 app.post('/user/:id/addFriend', addFriend)
 
-app.get('/user/:id/friends', getFriendsScores)
-
-app.get('/globalleaderboard', getHighestScores)
+app.get('/user/:id/friends', getFriends)
 
 Markdown ->
 
 |User|Friendship|
 |:---|:---------|
-|Id|userId|
-|score|friendId|
-|wins|
+|id|id|
+|score|userId|
+|wins|friendId|
 |losses|
 |userName|
 
 MVP Checklist ->
-Create Profile\
-Add Scoring and Win Lose Tracker\ 
-Show stats in profile\
-save friends profiles\
-view friends stats
+Sign Up\
+Add Scoring and # of Wins Tracker\ 
+Show stats when logged in\
+show friends scores when logged in\
+add friends\
 
 Stretch Goals ->
 Global Leaderboard\
 Design Changes\
-Message when you beat your high score
+track # of losses
 
 ![home page](assets/wireframes/homePage.jpeg)
 ![score page](assets/wireframes/scorePage.jpeg)
+![erb](assets/wireframes/erb.png)
