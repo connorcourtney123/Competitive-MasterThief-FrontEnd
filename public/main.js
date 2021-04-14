@@ -2,7 +2,7 @@
 
 
 /*******************************************GLOBAL VARIABLES******************************************************/
-const baseURL = 'http://localhost:3001'
+const baseURL = 'http://localhost:3000'
 const COLOR_LIST = ['green', 'red', 'blue', 'yellow', 'white', 'purple'] //use this to get random code
 
 let code= [] //answer
