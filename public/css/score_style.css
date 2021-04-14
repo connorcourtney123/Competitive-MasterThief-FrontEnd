@@ -137,6 +137,10 @@
     color: black;
 }
 
+#lossesDiv{
+    display: none;
+}
+
 #addFriend_form{
     display: flex;
     flex-direction: row;

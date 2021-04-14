@@ -2,7 +2,7 @@
 
 
 /*******************************************GLOBAL VARIABLES******************************************************/
-const baseURL = 'http://localhost:3000'
+const baseURL = 'http://localhost:3001'
 const COLOR_LIST = ['green', 'red', 'blue', 'yellow', 'white', 'purple'] //use this to get random code
 
 let code= [] //answer
@@ -35,6 +35,10 @@ async function changeToScreen(screen){
     //make sure background isnt the vault from winning:
     document.body.style.backgroundImage = "url('assets/bankWall2.jpeg')";
 
+    //stop all stressor sounds
+    document.getElementById("fastHeartBeat").pause()
+    document.getElementById("siren").pause()
+
 
     if(screen == "log_sign_screen"){
         //hide other screens:
@@ -50,6 +54,7 @@ async function changeToScreen(screen){
         score.style.display = 'flex';
         await initializeScoreScreen()
     }else if(screen == "game_screen"){
+        resetGame();
         //hide other screens:
         logSign.style.display = 'none';
         score.style.display = 'none';
@@ -222,6 +227,8 @@ document.getElementById('addFriend_bttn').addEventListener('click', async (event
 
 
 const initializeScoreScreen = async () => {
+
+
     //get all the dom elements we are manipulating:
     var welcome = document.getElementById('welcome');
     var statsHead = document.getElementById('stats_header')
@@ -275,7 +282,16 @@ document.getElementById('play_bttn').addEventListener('click', async (event) =>{
 
 /*****************************************************GAME SCREEN****************************************************/
 
-// pause lose game animation
+/*make play again button work*/
+document.getElementById("playAgainBttn").addEventListener("click", async function () {
+   // location.reload();
+
+   await changeToScreen('score_screen');
+
+})
+
+const pauseAnimations = () => {
+    // pause lose game animation
 // https://css-tricks.com/controlling-css-animations-transitions-javascript/
 document.getElementById("jailbars").style.webkitAnimationPlayState = "paused";
 // pause win game animation
@@ -283,25 +299,42 @@ document.getElementById("main_screen").style.webkitAnimationPlayState = "paused"
 // pause play again animation
 document.getElementById("playAgain").style.webkitAnimationPlayState = "paused";
 
-
-
-/*make play again button work*/
-document.getElementById("playAgainBttn").addEventListener("click", async function () {
-   // location.reload();
-
-   await changeToScreen('score_screen');
-
-
-
-
-})
-
-
-//make random keypad passcode
-for(let i=0; i < 4; i++){
-    code.push(COLOR_LIST[Math.floor(Math.random() * COLOR_LIST.length)]) //randomizing index of color list
 }
-console.log(code);
+
+
+
+const resetGame = () => {
+
+    pauseAnimations()
+
+
+    //reset global variables
+    code= []
+    currentGuess = []
+    pastGuesses = []
+    guessCount = 0
+
+
+    //make random keypad passcode
+    for(let i=0; i < 4; i++){
+        code.push(COLOR_LIST[Math.floor(Math.random() * COLOR_LIST.length)]) //randomizing index of color list
+    }
+    console.log(code);
+
+    //clear note screen
+    updateNoteScreen();
+
+    //clear keypad screen
+    document.querySelector('#correct').style.display = 'none'
+    document.querySelector('#incorrect').style.display = 'none'
+    document.querySelector('#location1').style.display = 'none'
+    document.querySelector('#location2').style.display = 'none'
+    document.querySelector('#location3').style.display = 'none'
+    document.querySelector('#location4').style.display = 'none'
+
+
+
+}
 
 
 //Make fingerprints clickable
@@ -433,7 +466,7 @@ async function checkGuess(code, currentGuess){
         /***************SAVE WIN TO DATABASE****************/
         // backend route: app.post('/user/:id/win/:score', saveScore)
         try{
-            let changes = await axios.post(baseURL + '/user/' +localStorage.userId+'/win/'+ guessCount, {})
+            let changes = await axios.post(baseURL + '/user/' +localStorage.userId+'/win/'+ parseInt(10000/guessCount), {})
             console.log(changes)
 
         }catch(error){
