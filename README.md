@@ -39,6 +39,6 @@ Global Leaderboard\
 Design Changes\
 track # of losses
 
-![home page](assets/wireframes/homePage.jpeg)
-![score page](assets/wireframes/scorePage.jpeg)
-![erb](assets/wireframes/erb.png)
+![home page](wireframes/homePage.jpeg)
+![score page](wireframes/scorePage.jpeg)
+![erb](wireframes/erb.png)
