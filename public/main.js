@@ -66,7 +66,7 @@ async function changeToScreen(screen){
 const login = async () => {
 
     try{
-        let user = await axios.post('http://localhost:3000/login', {
+        let user = await axios.post(baseURL+'/login', {
             username: document.getElementById('l_username').value
         })
 
