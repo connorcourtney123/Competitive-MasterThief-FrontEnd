@@ -23,7 +23,7 @@ app.listen(PORT, () => {
 
 
 app.use(async (req, res, next) => {
-  const filepath = path.join(__dirname, "public", "main.js", "public/css", "public/assets")
+  const filepath = path.join(__dirname, "public", "main.js")
   if (process.env.NODE_ENV === 'production') {
     await replaceInFile({
       files: filepath,
