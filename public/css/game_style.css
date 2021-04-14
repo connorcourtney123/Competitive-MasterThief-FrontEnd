@@ -4,7 +4,7 @@ body {
     text-align: center;
     margin: 0 auto;
     background-color: royalblue;
-    background-image: url('../assets/bankWall2.jpeg');
+    background-image: url('/public/assets/bankWall2.jpeg');
     /* https://www.wallpaperflare.com/untitled-metal-wall-texture-gray-background-metallic-smooth-wallpaper-zutix/download/1920x1080 */
 }
 

@@ -12,7 +12,8 @@
         height: 7vw;
         font-family: orbitron, sans-serif;
         font-size: 5vw;
-        color: #16e075;
+        /* color: #16e075; */
+        color: red;
         background-color: rgba(0,0,0,.7);
         border-radius: 2%;
         padding: .25vw 1vw .25vw 1vw;
